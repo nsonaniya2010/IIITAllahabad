@@ -1,8 +1,8 @@
 //Linked list implementation of queue
 
-#include <stdio.h>
-#include <conio.h>
+#include <bits/stdc++.h>
 
+using namespace std;
 struct node
 {
 	int data;
@@ -16,7 +16,7 @@ lnode *extranode = NULL;
 lnode *freenode = NULL;
 
 void push(int n){
-	extranode = *malloc(sizeof(node));
+  extranode = new lnode;
 	extranode->data = n;
 	extranode->next = NULL;
 
@@ -35,35 +35,35 @@ void push(int n){
 int remove(){
 	int rdata;
 	if(front == NULL){
-		printf("Khali hai, kya remove karega bhenchod");
+		cout<<"Khali hai, kya remove karega bhenchod";
 	}
 	else
 	{	
 		freenode = front;
 		rdata = freenode->data;
-		printf("ye nikala tune: %d\n",&rdata);
+		cout<<"ye nikala tune: "<<rdata;
 		front = front->next;
-		free(freenode);
-		return rdata;
+		delete(freenode);
 	}
+	return(rdata);
 }
 
 
 int main(){
 
 	int x, value;
-	printf("Kya krna hai tujhe queue ke saath:\n");
-	printf("1. Daalna hai?\n");
-	printf("2. Nikalna hai?\n");
-	printf("3. Kuch nahi krna?\n");
+	cout<<"Kya krna hai tujhe queue ke saath:\n";
+	cout<<"1. Daalna hai?\n";
+	cout<<"2. Nikalna hai?\n";
+	cout<<"3. Kuch nahi krna?\n";
 	int c;
-	scanf("%d",&c);
+	cin>>c;
 
-	switch(c):
+	switch(c){
 	case 1:
-	printf("Kitti values dalna hai chodu:\n");
-	scanf("%d", &x);
-	printf("Daal na chutiye idhar:\n");
+	cout<<"Kitti values dalna hai chodu:\n";
+	cin>>x;
+	cout<<"daal na chutiye idhar:\n";
 
 	for (int i = 0; i < x; ++i)
 	{
@@ -71,13 +71,19 @@ int main(){
 		push(value);
 	}
 	break;
-	case 2: 
-	remove();
+	case 2:
+	if(front !=NULL){ 
+	int x = remove();
+	cout<<"Ye remove hua chutiye:"<<x;
+	    
+	}
+	else
+	cout<<"Khali hai chutiye\n";
 	break;
 	case 3: 
-	printf("\nKuch nahi krna tha to bhenchudane aaya madarchod, agli baar dikh mat jaiyo.");
+	cout<<"\nKuch nahi krna tha to bhenchudane aaya madarchod, agli baar dikh mat jaiyo.";
 	break;
 	default:
 	break;
-
+}
 return 0;}
