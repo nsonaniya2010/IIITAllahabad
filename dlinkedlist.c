@@ -56,7 +56,7 @@ int main()
 		scanf("%d", &x);
 		add_beg(&head,x);	
 	}
-	//print(&head);
+	print(&head);
 	printf("\n");
 	print_prev(&tail);
 
