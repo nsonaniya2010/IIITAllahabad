@@ -7,12 +7,13 @@ struct node
 	struct node* next;
 	struct node* prev;
 };
-
+struct node* tail;
 void add_beg(struct node** head, int x)
 {	struct node* new = (struct node*)malloc(sizeof(struct node));
 	new->data = x;
+
 	if((*head) == NULL)
-	{
+	{	tail = *head;
 		new->next = NULL;
 		new->prev = NULL;
 		*head = new;
@@ -33,13 +34,9 @@ void print(struct node** head)
 	}
 }
 
-void print_prev(struct node** head)
+void print_prev(struct node** tail)
 {
-	struct node* temp2 = *head;
-	while(temp2->next!=NULL)
-	{
-		temp2 = temp2->next;
-	}
+	struct node* temp2 = *tail;
 	while(temp2!=NULL)
 	{
 		printf("%d", temp2->data);
@@ -60,7 +57,7 @@ int main()
 	}
 	print(&head);
 	printf("\n");
-	print_prev(&head);
+	print_prev(&tail);
 
 return 0;
 }
