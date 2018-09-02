@@ -13,10 +13,11 @@ void add_beg(struct node** head, int x)
 	new->data = x;
 
 	if((*head) == NULL)
-	{	tail = *head;
+	{	
 		new->next = NULL;
 		new->prev = NULL;
 		*head = new;
+		tail = *head;
 		return;
 	}
 	new->prev = NULL;
@@ -55,7 +56,7 @@ int main()
 		scanf("%d", &x);
 		add_beg(&head,x);	
 	}
-	print(&head);
+	//print(&head);
 	printf("\n");
 	print_prev(&tail);
 
