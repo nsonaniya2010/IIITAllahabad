@@ -49,7 +49,7 @@ void print_prev(struct node** head)
 
 int main()
 {	struct node* head = NULL;
-	printf("Enter the nodes you want to add at the begining of list");
+	printf("Enter the nodes you want to add at the begining of list:\n");
 	int n;
 	scanf("%d", &n);
 	int x;
