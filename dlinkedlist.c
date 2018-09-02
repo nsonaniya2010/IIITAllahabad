@@ -1,3 +1,11 @@
+/*
+Enter the nodes you want to add at the begining of list:
+5
+1 4 3 6 9
+96341
+14369
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
