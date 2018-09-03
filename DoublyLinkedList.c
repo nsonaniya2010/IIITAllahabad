@@ -15,7 +15,11 @@ struct node
 	struct node* next;
 	struct node* prev;
 };
-struct node* tail;
+
+struct node* tail = NULL;
+struct node* etail = NULL;
+
+
 void add_beg(struct node** head, int x)
 {	struct node* new = (struct node*)malloc(sizeof(struct node));
 	new->data = x;
@@ -53,8 +57,28 @@ void print_prev(struct node** tail)
 	}
 }
 
+void add_end(struct node** ehead, int x)
+{
+	struct node* enew = (struct node*)malloc(sizeof(struct node));
+	enew->data = x;
+	if((*ehead) == NULL)
+	{
+		enew->prev = NULL;
+		enew->next = NULL;
+		(*ehead) = enew;
+		etail = (*ehead);
+		return;
+	}
+	etail->next = enew;
+	enew->next = NULL;
+	enew->prev = etail;
+	etail = enew;
+}
+
 int main()
-{	struct node* head = NULL;
+{	
+	struct node* ehead = NULL;
+	struct node* head = NULL;
 	printf("Enter the nodes you want to add at the begining of list:\n");
 	int n;
 	scanf("%d", &n);
@@ -62,11 +86,12 @@ int main()
 	for(int i = 0 ;i<n;i++)
 	{
 		scanf("%d", &x);
-		add_beg(&head,x);	
+		add_end(&ehead,x);	
 	}
-	print(&head);
+	print(&ehead);
 	printf("\n");
-	print_prev(&tail);
+	print_prev(&etail);
 
 return 0;
 }
+
