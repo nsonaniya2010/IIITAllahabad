@@ -1,3 +1,10 @@
+/*
+Enter the number of nodes you want to add:
+3
+1 2 3
+123
+*/
+
 #include<stdio.h>
 #include<stdlib.h>
 
