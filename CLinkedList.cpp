@@ -93,26 +93,64 @@ void CircList::delete_element(int num)
 
 int main()
 {
-	cout<<"Enter the nodes you want to add:\n";
 	int n;
-	cin>>n;
+	int m;
 	CircList obj;
-	cout<<"Enter the elements:\n";
-	int x;
-	for(int i =0 ; i<n;i++)
-	{	cin>>x;
-		obj.add_node_end(x);
-	}	
+	/*cout<<"Enter the elements:\n";
 	cout<<"linked list is:\n";
 	obj.print_linked_list();
 	cout<<"\n";
-	cout<<"Enter the element you want to delete:\n";
-	int y;
-	cin>>y;
-	obj.delete_element(y);
-	cout<<"\n";
 
 	cout<<"Modified linked list is:\n";
-	obj.print_linked_list();
-	return 0;
+*/
+while(1)
+{
+	cout<<"Enter the operation you want to perform:\n";
+	cout<<"1. Add at the begining\n";
+	cout<<"2. Add at the end\n";
+	cout<<"3. Delete the element\n";
+	cout<<"4. Display the list\n";
+	cout<<"5. Exit\n";
+
+	int choice;
+	cin>>choice;
+
+	switch(choice)
+	{
+		case 1:
+			cout<<"Enter the nodes you want to add at begin:\n";
+			cin>>n;
+			int x;
+			for(int i =0 ; i<n;i++)
+			{	
+				cin>>x;
+				obj.add_node_beg(x);
+			}
+			break;
+		case 2: 
+			cout<<"Enter the nodes you want to add at end:\n";
+			cin>>m;
+			for(int i=0 ; i < m; i++)
+			{	
+				cin>>x;
+				obj.add_node_end(x);
+			}
+			break;
+		case 3:
+				cout<<"Enter the element you want to delete:\n";
+				int y;
+				cin>>y;
+				obj.delete_element(y);
+				cout<<"\n";
+				break;
+		case 4: 
+				cout<<"\n";
+				obj.print_linked_list();
+				cout<<"\n";
+				break;
+		default:
+				exit(1);
+	}
+
+}	return 0;
 }
