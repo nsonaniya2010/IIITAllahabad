@@ -54,8 +54,8 @@ void CircList::add_node_end(int n)
 }
 void CircList::print_linked_list()
 {	
-	cout<<"Hello world";
 	node *temp3 = new node;
+	temp3 = last;
 	if(last == NULL)
 	{
 		printf("Empty linked list\n");
