@@ -64,7 +64,7 @@ void CircList::print_linked_list()
 	}
 	do
 	{
-		cout<<(temp3->data);
+		cout<<" "<<(temp3->data);
 		temp3 = temp3->next;
 	}while(temp3 != last->next);
 }
@@ -75,7 +75,7 @@ void CircList::delete_element(int num)
 	node *temp5 = new node;
 	temp4 = last->next;
 	temp5 = last;
-	while(temp4!=last)
+	do
 	{	
 		if(temp4->data == num)	
 		{	
@@ -85,8 +85,8 @@ void CircList::delete_element(int num)
 		}
 		temp5 = temp5->next;
 		temp4 = temp4->next;
-	}
-	cout<<"Element not found so not deleted";
+	}while(temp4 != last->next);
+	cout<<"Element not found so not deleted\n";
 
 }
 
@@ -103,6 +103,7 @@ int main()
 	{	cin>>x;
 		obj.add_node_end(x);
 	}	
+	cout<<"linked list is:\n";
 	obj.print_linked_list();
 	cout<<"\n";
 	cout<<"Enter the element you want to delete:\n";
@@ -110,6 +111,8 @@ int main()
 	cin>>y;
 	obj.delete_element(y);
 	cout<<"\n";
+
+	cout<<"Modified linked list is:\n";
 	obj.print_linked_list();
 	return 0;
 }
