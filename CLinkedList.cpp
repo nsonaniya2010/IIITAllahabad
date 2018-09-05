@@ -21,6 +21,7 @@ class CircList
 		void add_node_beg(int n);
 		void add_node_end(int n);
 		void print_linked_list();
+		void delete_element(int num);
 };
 
 void CircList::add_node_beg(int n)
@@ -55,8 +56,8 @@ void CircList::add_node_end(int n)
 void CircList::print_linked_list()
 {	
 	node *temp3 = new node;
-	temp3 = last;
-	if(last == NULL)
+	temp3 = last->next;
+	if(temp3 == NULL)
 	{
 		printf("Empty linked list\n");
 		return;
@@ -68,6 +69,28 @@ void CircList::print_linked_list()
 	}while(temp3 != last->next);
 }
 
+void CircList::delete_element(int num)
+{
+	node *temp4 = new node;
+	node *temp5 = new node;
+	temp4 = last->next;
+	temp5 = last;
+	while(temp4!=last)
+	{	
+		if(temp4->data == num)	
+		{	
+			cout<<"Number deleted\t"<<temp4->data;
+			temp5->next = temp4->next;
+			return;
+		}
+		temp5 = temp5->next;
+		temp4 = temp4->next;
+	}
+	cout<<"Element not found so not deleted";
+
+}
+
+
 int main()
 {
 	cout<<"Enter the nodes you want to add:\n";
@@ -78,10 +101,15 @@ int main()
 	int x;
 	for(int i =0 ; i<n;i++)
 	{	cin>>x;
-		obj.add_node_beg(x);
-		obj.print_linked_list();
+		obj.add_node_end(x);
 	}	
-	
-
-return 0;
+	obj.print_linked_list();
+	cout<<"\n";
+	cout<<"Enter the element you want to delete:\n";
+	int y;
+	cin>>y;
+	obj.delete_element(y);
+	cout<<"\n";
+	obj.print_linked_list();
+	return 0;
 }
